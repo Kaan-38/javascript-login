@@ -269,7 +269,7 @@ passwordinput.addEventListener("keyup",function() {
         passwordniceh6.style.visibility = "hidden";
         span.style.visibility = "hidden";
         loginh62.style.visibility = "hidden";
-  
+       
 	}
 })
 
@@ -293,6 +293,24 @@ passwordinput.addEventListener("keyup",function() {
       span.style.background = "#940000";
    }else{
    	loginh62.style.visibility = "hidden";
+   }
+   if(userinput.value.length > 5 && userinput.value.length < 13){
+   	label.style.visibility = "hidden";
+    niceh6.style.visibility = "hidden";
+    userinput.style.border = "3px solid white";
+    userclose.style.display = "none";
+    usercheck.style.display = "none";
+    userh6.style.color = "white";
+   }else{
+      
+   }
+   if(passwordinput.value.length > 5 && passwordinput.value.length < 13){
+       span.style.visibility = "hidden";
+   	   passwordniceh6.style.visibility = "hidden";
+   	   passwordinput.style.border = "3px solid white";
+      
+       passwordicon2.style.display = "none";
+       passwordh6.style.color = 'white';
    }
  })
 
