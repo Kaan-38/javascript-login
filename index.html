@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<style type="text/css">
+	*{margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; font-weight: bold;}
+	body {background:#2f75ce; display:flex; align-items: center; justify-content: center; min-height: 100vh;}
+	
+	nav {width: 22%; height: 400px; border-radius: 10px; background:#2f75ce; box-shadow: 0 0 18px #2f75ce; border: 2px solid white; display: flex; flex-direction: column; }
+	
+	.container1 {width: 100%; height: 100%;border-radius: 10px; display: flex ;flex-direction: column;  justify-content: center; }
+	
+	li {list-style-type: none; color: white; cursor: pointer; margin-bottom:30px; position: relative; left: 15%;  display: flex ;align-items: center;}
+	
+	.container1 li input {width:70%; height: 36px; border-style: none; outline: none; background:#2f75ce; color:white; font-size: 13px; border:3px solid  white;}
+	
+	.container1 li  ion-icon {position: absolute; left:62%; font-size: 25px; display: none; color: var(--clr);}
+	
+	.container1 li h6 {position: absolute; left: 10px; font-size: 15px;  pointer-events: none; color: white;}
+	 
+    .container1 li input:not(:placeholder-shown) + h6 ,.container1 li input:focus + h6 {top: -15px; width: auto; padding: 8px; background:#2f75ce; height: 18px; font-size: 14px; color:white; }
+  
+
+	.h3-login {width: 108px; height: 36px; background:none; border-radius: 4px; border:2px solid white; display: flex; align-items: center; justify-content: center; cursor:pointer; color:white; text-shadow: 0 0 2px white;}
+	
+	.h3-login:hover {transform: scale(1.03);}
+	
+	.container2 h2 {color: white;text-shadow: 0 0 2px white;}
+	
+	.container1 h2::after  {content: ''; width:90px; height: 4px;background:white; box-shadow: 0 0 5px white;  position: absolute; display: flex ;align-items: center; justify-content: center; cursor: pointer; bottom: -4px;}
+ 
+  .container1 h4 {color: white; text-shadow: 0 0 3px white;}
+  
+  .container1 h4::after {content: ''; width:138px; height:3px; background: white; position: absolute; display: flex; align-items: center ;justify-content: center; bottom: -6px; }
+ 
+   label {width: 60%; height: 20px; background:#940000; border-radius: 2px; box-shadow:0 0 10px #940000; position: absolute; bottom: -27px; display: flex ; justify-content: center; flex-direction: column; cursor: pointer; z-index: 100; visibility: hidden;}
+ 
+   label::after {content: ''; width: 0; height: 0; border-width: 7px; border-style: solid; border-color:#940000 transparent transparent transparent; position: absolute; bottom: 20px; transform: rotate(180deg);}
+   .user-li label h6 {font-size: 10px; position: absolute; cursor: pointer; visibility: hidden;}
+
+   label.active {background-color:#004b04; box-shadow: 0 0 10px #004b04;}
+ 
+    label.active::after {border-color: #004b04 transparent transparent transparent;}
+ 
+   span {width:60%; height: 20px; background:#940000; border-radius: 2px; box-shadow:0 0 10px #940000; position: absolute; bottom: -27px; display: flex ; justify-content: center; flex-direction: column; cursor: pointer; z-index: 100;visibility: hidden;}
+   
+   span::after {content: ''; width: 0; height: 0; border-width: 7px; border-style: solid; border-color:#940000 transparent transparent transparent; position: absolute; bottom: 20px; transform: rotate(180deg);}
+   
+   .password-li span h6 {font-size: 10px; position: absolute; cursor: pointer; visibility:hidden; }
+ 
+    span.active {background-color:#004b04; box-shadow: 0 0 10px #004b04;}
+ 
+    span.active::after {border-color: #004b04 transparent transparent transparent;}
+
+@media only screen and (max-width: 1700px) {
+
+	nav {width: 24%;}
+}
+@media only screen and (max-width: 1540px) {
+	
+	nav {width: 26%;}
+}
+@media only screen and (max-width: 1400px) {
+	
+	nav {width: 28%;}
+}
+@media only screen and (max-width: 1100px) {
+
+	nav {width:37%;}
+}
+@media only screen and (max-width: 940px) {
+	
+	nav {width: 46%;}
+}
+
+@media only screen and (max-width: 660px) {
+	
+	nav {width: 60%;}
+}
+@media only screen and (max-width: 500px) {
+	
+	nav {width:70%;}
+}
+@media only screen and (max-width: 490px) {
+	
+
+}
+</style>
+</head>
+<body>
+
+<nav>
+
+ <div class="container1">
+ 	<li>
+ 		<h2>SİGN IN</h2>
+ 	</li>
+ 
+ 	<li class="user-li">
+ 		<input type="text" name="" placeholder=" " class="user-input">
+ 		<h6 class="user-h6">USERNAME</h6>
+ 		<ion-icon name="close-sharp" class="user-icon1" style="--clr: #940000;"></ion-icon>
+ 		<ion-icon name="checkmark-sharp" class="user-icon2" style="--clr:#004b04;"></ion-icon>
+ 		<label><h6 class="eror-h6">Please enter more than 6 characters</h6><h6 class="nice-h6">Entered Username is Valid</h6>
+ 		<h6 class="eror-h62">Please Enter less than 16 characters</h6></label>
+ 	</li>
+ 	
+
+
+ 	<li class="password-li">
+ 		<input type="password" name="" placeholder=" " class="password-input">
+ 		<h6 class="password-h6">PASSWORD</h6>
+ 		<ion-icon name="close-sharp"  style="--clr: #940000;" class="password-icon1"></ion-icon>
+ 		<ion-icon name="checkmark-sharp"  style="--clr:#004b04;" class="password-icon2"></ion-icon>
+ 		<span>
+ 			<h6 class="password-eror-h61">Password must be greater than 6 characters</h6>
+            <h6 class="password-nice-h6">Entered Password is Valid</h6>
+            <h6 class="password-eror-h62">Please Enter less than 16 characters</h6></label>
+ 		</span>
+ 	</li>
+ 
+
+
+
+ 	<li>
+ 		<h3 class="h3-login">LOGİN</h3>
+ 	</li>
+ 	
+
+
+
+ 	<li>
+ 		<h4>Forgot Password?</h4>
+ 	</li>
+ </div>
+
+
+
+
+</nav>
+
+
+
+
+
+
+<script type="text/javascript">
+   const span = document.querySelector('span');
+   const passwordniceh6 = document.querySelector('.password-nice-h6');
+   const passworderorh61 = document.querySelector('.password-eror-h61');
+   const passworderorh62 = document.querySelector('.password-eror-h62');
+   const erorh62 = document.querySelector('.eror-h62');
+   const label = document.querySelector('label');
+   const erorh6 = document.querySelector('.eror-h6');
+   const niceh6 = document.querySelector('.nice-h6');
+   const passwordli = document.querySelector('.password-li');
+   const passwordinput = document.querySelector('.password-input');
+   const userh6 = document.querySelector('.user-h6');
+   const passwordicon1 = document.querySelector('.password-icon1');
+   const passwordicon2 = document.querySelector('.password-icon2');
+   const passwordh6 = document.querySelector('.password-h6');
+
+
+	const h6 = document.querySelector('h6');
+	const userclose = document.querySelector('.user-icon1');
+	const usercheck = document.querySelector('.user-icon2');
+	const userinput = document.querySelector('.user-input');
+	userinput.addEventListener('keyup',function() {
+		if(userinput.value.length > 0 && userinput.value.length < 6){
+			userinput.style.border = "3px solid #940000";
+         userclose.style.display = "block";
+         usercheck.style.display = "none";
+         userh6.style.color = "#940000";
+         label.style.visibility = "visible";
+         erorh6.style.visibility = "visible";
+         niceh6.style.visibility = "hidden";
+         label.classList.remove('active');
+         erorh62.style.visibility = "hidden";
+         label.style.background = "#940000"
+		}
+      
+
+
+	else if(userinput.value.length > 5 && userinput.value.length < 13){
+		userinput.style.border = "3px solid #004b04";
+         userclose.style.display = "none";
+         usercheck.style.display = "block";
+         userh6.style.color = "#004b04";
+         label.style.background = "#004b04"
+         label.classList.add('active');
+         erorh6.style.visibility = "hidden";
+         niceh6.style.visibility = "visible";
+         erorh62.style.visibility = "hidden";
+
+	}
+	else if(userinput.value.length > 12){
+	userinput.style.border = "3px solid #940000";
+         userclose.style.display = "block";
+         usercheck.style.display = "none";
+         userh6.style.color = "#940000";
+         label.style.visibility = "visible";
+         label.style.background = "#940000";
+         erorh6.style.visibility = "hidden";
+         niceh6.style.visibility = "hidden";
+         erorh62.style.visibility = "visible";
+         label.classList.remove('active');
+        
+         
+         
+	}
+   else
+   {
+   	  userinput.style.border = "3px solid white";
+         userclose.style.display = "none";
+         usercheck.style.display = "none";
+		userh6.style.color = "white";
+		label.style.visibility = "hidden";
+		erorh6.style.visibility = "hidden";
+         niceh6.style.visibility = "hidden";
+         erorh62.style.visibility = "hidden";
+         
+   }
+
+})
+
+
+
+
+
+
+passwordinput.addEventListener("keyup",function() {
+	if(passwordinput.value.length > 0 && passwordinput.value.length < 6){
+			passwordinput.style.border = "3px solid #940000";
+            passwordicon1.style.display = "block";
+            passwordicon2.style.display = "none";
+            passwordh6.style.color = '#940000';
+            span.style.visibility = "visible";
+            span.style.background = "#940000";
+            span.classList.remove('active');
+            passworderorh61.style.visibility = "visible";
+            passworderorh62.style.visibility = "hidden";
+            passwordniceh6.style.visibility = "hidden";
+            
+           
+     }
+    else if(passwordinput.value.length > 5 && passwordinput.value.length < 13){
+		passwordinput.style.border = "3px solid #004b04";
+        passwordicon1.style.display = "none";
+        passwordicon2.style.display = "block";
+        passwordh6.style.color = '#004b04';
+        span.classList.add('active');
+        span.style.background = "#004b04";
+        passworderorh61.style.visibility = "hidden";
+        passworderorh62.style.visibility = "hidden";
+        passwordniceh6.style.visibility = "visible";
+	}
+	else if(passwordinput.value.length > 12){
+		passwordinput.style.border = "3px solid #940000";
+		passwordicon1.style.display = "block";
+        passwordicon2.style.display = "none";
+        passwordh6.style.color = '#940000';
+        span.classList.remove('active');
+        span.style.background = "#940000";
+        passworderorh62.style.visibility = "visible";
+        passworderorh61.style.visibility = "hidden";
+        passwordniceh6.style.visibility = "hidden";
+	}
+	else{
+		passwordinput.style.border = "3px solid white";
+        passwordicon1.style.display = "none";
+        passwordicon2.style.display = "none";
+        passwordh6.style.color = 'white';
+        passworderorh61.style.visibility = "hidden";
+        passworderorh62.style.visibility = "hidden";
+        passwordniceh6.style.visibility = "hidden";
+        span.style.visibility = "hidden";
+
+	}
+})
+
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
