@@ -23,7 +23,13 @@
 	.container1 li h6 {position: absolute; left: 10px; font-size: 15px;  pointer-events: none; color: white;}
 	 
     .container1 li input:not(:placeholder-shown) + h6 ,.container1 li input:focus + h6 {top: -15px; width: auto; padding: 8px; background:#2f75ce; height: 21px; font-size: 14px; color:white; }
-  
+     
+    
+
+ 
+ 
+
+
 
 	.h3-login {width: 108px; height: 36px; background:none; border-radius: 4px; border:2px solid white; display: flex; align-items: center; justify-content: center; cursor:pointer; color:white; text-shadow: 0 0 2px white; position: relative; top:3px;}
 	
@@ -77,8 +83,12 @@
  		<h6 class="user-h6">USERNAME</h6>
  		<ion-icon name="close-sharp" class="user-icon1" style="--clr: #940000;"></ion-icon>
  		<ion-icon name="checkmark-sharp" class="user-icon2" style="--clr:#004b04;"></ion-icon>
- 		<label><h6 class="eror-h6">Please enter more than 6 characters</h6><h6 class="nice-h6">Entered Username is Valid</h6>
- 		<h6 class="eror-h62">Please Enter less than 16 characters</h6></label>
+ 		<label>
+ 			<h6 class="login-h6">do not leave blank space</h6>
+ 			<h6 class="eror-h6">Please enter more than 6 characters</h6>
+ 			<h6 class="nice-h6">Entered Username is Valid</h6>
+ 		<h6 class="eror-h62">Please Enter less than 16 characters</h6>
+ 	</label>
  	</li>
  	
 
@@ -89,6 +99,7 @@
  		<ion-icon name="close-sharp"  style="--clr: #940000;" class="password-icon1"></ion-icon>
  		<ion-icon name="checkmark-sharp"  style="--clr:#004b04;" class="password-icon2"></ion-icon>
  		<span>
+ 			<h6 class="login-h62">do not leave blank space</h6>
  			<h6 class="password-eror-h61">Password must be greater than 6 characters</h6>
             <h6 class="password-nice-h6">Entered Password is Valid</h6>
             <h6 class="password-eror-h62">Please Enter less than 16 characters</h6></label>
@@ -99,7 +110,7 @@
 
 
  	<li>
- 		<h3 class="h3-login">LOGİN</h3>
+ 		<h3 class="h3-login" translate="none">LOGİN</h3>
  	</li>
  	
 
@@ -121,6 +132,9 @@
 
 
 <script type="text/javascript">
+	const loginh62 = document.querySelector('.login-h62');
+   const h3 = document.querySelector('.h3-login');
+   const loginh6 = document.querySelector('.login-h6');
    const span = document.querySelector('span');
    const passwordniceh6 = document.querySelector('.password-nice-h6');
    const passworderorh61 = document.querySelector('.password-eror-h61');
@@ -153,6 +167,7 @@
          label.classList.remove('active');
          erorh62.style.visibility = "hidden";
          label.style.background = "#940000"
+         loginh6.style.visibility = "hidden";
 		}
       
 
@@ -167,6 +182,7 @@
          erorh6.style.visibility = "hidden";
          niceh6.style.visibility = "visible";
          erorh62.style.visibility = "hidden";
+         loginh6.style.visibility = "hidden";
 
 	}
 	else if(userinput.value.length > 12){
@@ -180,7 +196,7 @@
          niceh6.style.visibility = "hidden";
          erorh62.style.visibility = "visible";
          label.classList.remove('active');
-        
+         loginh6.style.visibility = "hidden";
          
          
 	}
@@ -194,8 +210,8 @@
 		erorh6.style.visibility = "hidden";
          niceh6.style.visibility = "hidden";
          erorh62.style.visibility = "hidden";
-         
-   }
+        loginh6.style.visibility = "hidden";    
+   } 
 
 })
 
@@ -216,7 +232,7 @@ passwordinput.addEventListener("keyup",function() {
             passworderorh61.style.visibility = "visible";
             passworderorh62.style.visibility = "hidden";
             passwordniceh6.style.visibility = "hidden";
-            
+            loginh62.style.visibility = "hidden";
            
      }
     else if(passwordinput.value.length > 5 && passwordinput.value.length < 13){
@@ -229,6 +245,7 @@ passwordinput.addEventListener("keyup",function() {
         passworderorh61.style.visibility = "hidden";
         passworderorh62.style.visibility = "hidden";
         passwordniceh6.style.visibility = "visible";
+        loginh62.style.visibility = "hidden";
 	}
 	else if(passwordinput.value.length > 12){
 		passwordinput.style.border = "3px solid #940000";
@@ -240,6 +257,7 @@ passwordinput.addEventListener("keyup",function() {
         passworderorh62.style.visibility = "visible";
         passworderorh61.style.visibility = "hidden";
         passwordniceh6.style.visibility = "hidden";
+        loginh62.style.visibility = "hidden";
 	}
 	else{
 		passwordinput.style.border = "3px solid white";
@@ -250,11 +268,34 @@ passwordinput.addEventListener("keyup",function() {
         passworderorh62.style.visibility = "hidden";
         passwordniceh6.style.visibility = "hidden";
         span.style.visibility = "hidden";
-
+        loginh62.style.visibility = "hidden";
+  
 	}
 })
 
-	
+ h3.addEventListener('click',() =>{
+ 	if(userinput.value.length === 0 ){
+      loginh6.style.visibility = "visible";
+      
+      label.style.visibility = "visible";
+      
+      label.style.background = "#940000";
+     
+      label.classList.remove('active');
+ 	}else{
+     
+     loginh6.style.visibility = "hidden";
+ 	}
+   if(passwordinput.value.length === 0){
+   	loginh62.style.visibility = "visible";
+    span.classList.remove('active');
+    span.style.visibility = "visible"
+      span.style.background = "#940000";
+   }else{
+   	loginh62.style.visibility = "hidden";
+   }
+ })
+
 </script>
 </body>
 </html>
