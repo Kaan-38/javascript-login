@@ -10,7 +10,7 @@
 	*{margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; font-weight: bold;}
 	body {background:#2f75ce; display:flex; align-items: center; justify-content: center; min-height: 100vh;}
 	
-	nav {width:380px; height: 400px; border-radius: 10px; background:#2f75ce; box-shadow: 0 0 18px #2f75ce; border: 2px solid white; display: flex; flex-direction: column; }
+	nav {width:380px; height: 400px; border-radius: 10px; background:#2f75ce; box-shadow: 0 0 18px #2f75ce; border: 2px solid white; display: flex; flex-direction: column; position: relative; overflow: hidden;}
 	
 	.container1 {width: 100%; height: 100%;border-radius: 10px; display: flex ;flex-direction: column;  justify-content: center; }
 	
@@ -61,6 +61,16 @@
     span.active {background-color:#004b04; box-shadow: 0 0 10px #004b04;}
  
     span.active::after {border-color: #004b04 transparent transparent transparent;}
+
+
+    .sucsesfuly {color: white; position: absolute; left: 105%; top:22px; width:190px; height: 36px; border-radius: 4px; background:#004b04; box-shadow: 0 0 16px #004b04; color: white;display: flex; align-items: center; justify-content: center; padding: 13px; cursor: pointer; transition: 0.6s;}
+    .sucsesfuly::after {content: ''; width: 0; height: 0; border-width: 11px; border-style: solid; border-color:#004b04 transparent transparent transparent; position: absolute; left: 100%; transform: rotate(270deg);}
+    .sucsesfuly.active {animation: kaan 1.8s;}
+    @keyframes kaan{
+    	0%{left: 105%;}
+    	60%{left: 45%;}
+    	100%{left: 45%;}
+    }
 @media only screen and (max-width: 470px) {
 	nav{width: 90%;}
 }
@@ -72,8 +82,9 @@
 <body>
 
 <nav>
-
+      <div class="sucsesfuly">LOGIN SUCCESSFUL</div>
  <div class="container1">
+
  	<li>
  		<h2>SİGN IN</h2>
  	</li>
@@ -132,7 +143,8 @@
 
 
 <script type="text/javascript">
-	const loginh62 = document.querySelector('.login-h62');
+   const sucsesfuly  = document.querySelector('.sucsesfuly ');
+   const loginh62 = document.querySelector('.login-h62');
    const h3 = document.querySelector('.h3-login');
    const loginh6 = document.querySelector('.login-h6');
    const span = document.querySelector('span');
@@ -311,6 +323,9 @@ passwordinput.addEventListener("keyup",function() {
       
        passwordicon2.style.display = "none";
        passwordh6.style.color = 'white';
+   }
+   if(userinput.value.length > 5 && userinput.value.length < 13 && passwordinput.value.length > 5 && passwordinput.value.length < 13){
+   	sucsesfuly.classList.toggle('active');
    }
  })
 
